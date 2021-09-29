@@ -7,6 +7,7 @@
 - Course data (JSON)
 - Hult Brand Colours
 - Desktop & Mobile UI Design
+- Hult Logo
 
 ### Getting Started
 
