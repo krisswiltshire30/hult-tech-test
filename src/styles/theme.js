@@ -6,6 +6,11 @@ theme.layout = {
     // gradient: "linear-gradient(0deg, rgb(255,250,231,100%) 350px, rgb(255,255,255,100%) 330px)"
 }
 
+theme.query = {
+    md: "@media screen and (max-width: 440px)",
+    lg: "@media screen and (max-width: 1024px)",
+  }
+
 theme.colors = {
     white: ["rgb(255,255,255,100%)",
         "rgb(255,255,255,80%)",

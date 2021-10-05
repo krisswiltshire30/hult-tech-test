@@ -4,6 +4,10 @@ import styled from "styled-components"
 
 const Container = styled.div`
   width: 100%;
+
+  ${(props) => props.theme.query.lg} {
+    padding-left: 20px;
+  }
 `
 
 const Description = styled.p`

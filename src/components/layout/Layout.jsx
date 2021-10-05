@@ -32,9 +32,9 @@ const Layout = ({ children }) => {
         <ThemeProvider theme={theme}>
             <GlobalStyle />
             <PageContainer>
-                <Header/>
+                <Header />
                 <Main role="main">
-                    <BackgroundColor/>
+                    <BackgroundColor />
                     <Constrain>{children}</Constrain>
                 </Main>
             </PageContainer>

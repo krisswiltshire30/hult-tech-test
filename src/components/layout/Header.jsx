@@ -13,21 +13,26 @@ const HeaderContainer = styled.header`
   background-color: ${(props) => props.theme.colors.grey[0]};
   height: ${(props) => props.theme.layout.headerHeight};
   box-sizing: border-box;
+
+  
 `
 
 const Logo = styled.img`
   width: 160px;
   margin-top: 12px;
+  ${(props) => props.theme.query.lg} {
+    padding-left: 12px;
+  }
 `
 
 const Header = () => {
-    return (
-        <HeaderContainer >
-            <Constrain>
-                <Logo src={LogoImage}/>
-            </Constrain>
-        </HeaderContainer>
-    )
+  return (
+    <HeaderContainer >
+      <Constrain>
+        <Logo src={LogoImage} />
+      </Constrain>
+    </HeaderContainer>
+  )
 }
 
 export default Header

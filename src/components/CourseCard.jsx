@@ -14,9 +14,24 @@ const CardContainer = styled.div`
   gap: 0px 0px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+  ${(props) => props.theme.query.lg} {
+    width: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  ${(props) => props.theme.query.md} {
+    border-left: none;
+    border-top: solid 2px ${(props) => props.theme.colors.orange[0]};
+    grid-template-rows: 1fr 1fr; 
+  }
 `
 const CardContent = styled.div`
   width: 100%;
+  ${(props) => props.theme.query.md} {
+    grid-column: 1 /  span 2;
+  }
 `
 const CardContentWrapper = styled.div`
   padding: 20px;
@@ -34,6 +49,9 @@ const TopicsTitle = styled.h5`
 const Coursetopics = styled.div`
   background-color: ${(props) => props.theme.colors.grey[4]};
   width: 100%;
+  ${(props) => props.theme.query.md} {
+    grid-column: 1 /  span 2;
+  }
 `
 
 const CoursetopicsWrapper = styled.div`

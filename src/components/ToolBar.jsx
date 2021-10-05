@@ -7,6 +7,12 @@ const ToolBarContainer = styled.div`
   background-color: ${(props) => props.theme.colors.grey[0]};
   height: 100px;
   margin-top: 60px;
+
+  ${(props) => props.theme.query.lg} {
+    width: auto;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
 `
 
 const ToolWrapper = styled.div`

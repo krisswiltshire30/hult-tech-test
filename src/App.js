@@ -3,6 +3,7 @@ import Layout from './components/layout/Layout';
 import ArticleHeader from './components/ArticleHeader';
 import CourseCard from './components/CourseCard'
 import ToolBar from './components/ToolBar';
+import CourseCount from './components/CourseCount';
 import data from "./data/courses.json"
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
     <Layout>
       <ArticleHeader />
       <ToolBar setCourses={setCourses} data={data} />
-      <p>Showing <strong>{courses.length}</strong> results</p>
+      <CourseCount courses={courses} />
       {CourseCardsHandler(courses)}
     </Layout>
   );
