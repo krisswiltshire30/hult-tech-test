@@ -1,11 +1,12 @@
 import React from "react"
 import styled from "styled-components"
 import Constrain from "./Constrain"
-import LogoImage from "../../Logo.svg"
+import LogoImage from "../../images/Logo.svg"
 
 
 const HeaderContainer = styled.header`
   position: fixed;
+  z-index: 9999;
   top: 0;
   left: 0;
   width: 100%;
@@ -18,7 +19,6 @@ const Logo = styled.img`
   width: 160px;
   margin-top: 12px;
 `
-
 
 const Header = () => {
     return (

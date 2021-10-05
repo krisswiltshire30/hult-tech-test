@@ -11,12 +11,20 @@ import theme from "../../styles/theme"
 const PageContainer = styled.div`
    min-height: 100vh;
    margin-top: ${(props) => props.theme.layout.headerHeight};
-   background: ${(props) => props.theme.layout.gradient};
-
  `
 
 const Main = styled.main`
-padding-top: 80px;
+   padding-top: 80px;
+   position: relative;
+`
+
+const BackgroundColor = styled.div`
+   position: absolute;
+   margin-top: 200px;
+   min-height: 1200px;
+   width: 100%;
+   z-index: -1;
+   background-color: ${(props) => props.theme.colors.beige[0]};
 `
 
 const Layout = ({ children }) => {
@@ -26,6 +34,7 @@ const Layout = ({ children }) => {
             <PageContainer>
                 <Header/>
                 <Main role="main">
+                    <BackgroundColor/>
                     <Constrain>{children}</Constrain>
                 </Main>
             </PageContainer>
