@@ -1,10 +1,10 @@
-import Layout from './components/layout/Layout';
-import './App.css';
+import Layout from './components/layout/Layout'; 
+import ArticleHeader from './components/ArticleHeader';
 
 function App() {
   return (
     <Layout>
-      <div>testing</div>
+      <ArticleHeader/>
     </Layout>
   );
 }

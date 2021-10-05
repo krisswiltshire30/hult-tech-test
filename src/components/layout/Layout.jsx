@@ -15,15 +15,19 @@ const PageContainer = styled.div`
 
  `
 
+const Main = styled.main`
+padding-top: 20px;
+`
+
 const Layout = ({ children }) => {
     return (
         <ThemeProvider theme={theme}>
             <GlobalStyle />
             <PageContainer>
                 <Header/>
-                <main role="main">
+                <Main role="main">
                     <Constrain>{children}</Constrain>
-                </main>
+                </Main>
             </PageContainer>
         </ThemeProvider>
     )
