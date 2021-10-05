@@ -1,4 +1,5 @@
-import React, { useRef } from "react"
+import React from "react"
+import PropTypes from "prop-types"
 import styled from "styled-components"
 
 const ToolBarContainer = styled.div`
@@ -25,18 +26,38 @@ const Select = styled.select`
     border-radius: 3px;
 `
 
-const ToolBar = () => {
-    const DropDownRef = useRef()
-    return (
-        <ToolBarContainer>
-            <ToolWrapper>
-                <Label htmlFor={DropDownRef}>Course Type</Label>
-                <Select ref={DropDownRef} defaultValue={'DEFAULT'}>
-                    <option value="DEFAULT" disabled>Please select</option>
-                </Select>
-            </ToolWrapper>
-        </ToolBarContainer>
-    )
+const ToolBar = (props) => {
+  const { setCourses, data } = props
+
+  const getCourses = (type) => {
+    let courses = []
+    for (let i = 0; i < data.length; i++) {
+      if (data[i]['course-type'] === type) {
+        courses.push(data[i])
+      }
+    }
+    setCourses(courses)
+  }
+
+  return (
+    <ToolBarContainer>
+      <ToolWrapper>
+        <Label>Course Type</Label>
+        <Select defaultValue={'DEFAULT'} onChange={(e) => getCourses(e.target.value)} >
+          <option value="DEFAULT" disabled>Please select</option>
+          <option value="core">Core</option>
+          <option value="business-challenge">Business Challenge</option>
+          <option value="capstone">Capstone</option>
+          <option value="elective">Elective</option>
+        </Select>
+      </ToolWrapper>
+    </ToolBarContainer>
+  )
+}
+
+ToolBar.propTypes = {
+  setCourses: PropTypes.func,
+  data: PropTypes.array,
 }
 
 export default ToolBar

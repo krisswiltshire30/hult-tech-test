@@ -1,15 +1,19 @@
 import React from "react"
+import PropTypes from "prop-types"
 import styled from "styled-components"
+import { useUID } from "react-uid";
 
 const CardContainer = styled.div`
   width: 100%;
   background-color: ${(props) => props.theme.colors.white[0]};
   border-left: solid 2px ${(props) => props.theme.colors.orange[0]};
-  margin-top: 60px;
+  margin-top: 20px;
   display: grid; 
   grid-template-columns: 1fr 1fr; 
   grid-template-rows: 1fr; 
-  gap: 0px 0px; 
+  gap: 0px 0px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 `
 const CardContent = styled.div`
   width: 100%;
@@ -34,7 +38,7 @@ const Coursetopics = styled.div`
 
 const CoursetopicsWrapper = styled.div`
   border-top: solid ${(props) => props.theme.colors.black[0]};
-  margin: 20px;
+  margin: 30px;
 `
 const Topic = styled.p`
   border-top: solid 1px ${(props) => props.theme.colors.grey[4]};
@@ -42,33 +46,49 @@ const Topic = styled.p`
   width: 100%;
 `
 
-const CourseCard = () => {
+const CourseCard = (props) => {
+  const uid = useUID();
+  const { title, courseType, description, topicsArr } = props
   const TopicsHandler = (topics) => {
-    let test = []
+    let courseTopics = []
     for (let i = 0; i < topics.length; i++) {
-      test.push(<Topic>{topics[i]}</Topic>)
+      courseTopics.push(<Topic key={i}>{topics[i]}</Topic>)
     }
-    return test
+    return courseTopics
   }
 
-  let topics = ['test1', 'test2', 'test3']
+  const Capitalize = (str) => {
+    let Capitalize = str.replace(/(^|[\s-])\S/g, (match) => {
+      return match.toUpperCase();
+    });
+    return Capitalize.replace("-", " ");
+  }
+
   return (
-    <CardContainer>
+    <CardContainer key={uid}>
       <CardContent>
         <CardContentWrapper>
-          <span>Core</span>
-          <Coursetitle>Marketing Course</Coursetitle>
-          <p>Nisl litora anim sapiente ullam do? Ipsum rutrum dictumst aliquid dolores hendrerit, necessitatibus nisi. Nisi augue, cumque atque! Do, cupidatat.</p>
+          <span>{title}</span>
+          <Coursetitle>{Capitalize(courseType)}</Coursetitle>
+          <p>{description}</p>
         </CardContentWrapper>
       </CardContent>
       <Coursetopics>
         <CoursetopicsWrapper>
           <TopicsTitle>Key Topics & Skills</TopicsTitle>
-          {TopicsHandler(topics)}
+          {TopicsHandler(topicsArr)}
         </CoursetopicsWrapper>
       </Coursetopics>
     </CardContainer>
   )
 }
+
+CourseCard.propTypes = {
+  title: PropTypes.string,
+  courseType: PropTypes.string,
+  description: PropTypes.string,
+  topics: PropTypes.array,
+}
+
 
 export default CourseCard

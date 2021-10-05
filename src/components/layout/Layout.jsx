@@ -21,7 +21,7 @@ const Main = styled.main`
 const BackgroundColor = styled.div`
    position: absolute;
    margin-top: 200px;
-   min-height: 1200px;
+   height: 100%;
    width: 100%;
    z-index: -1;
    background-color: ${(props) => props.theme.colors.beige[0]};
