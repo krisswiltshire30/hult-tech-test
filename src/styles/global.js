@@ -11,6 +11,7 @@ h1 {
     margin-bottom: 16px;
 }
 
+
 p, span, label {
     color: ${theme.colors.grey[2]};
     font-size: 12px;
