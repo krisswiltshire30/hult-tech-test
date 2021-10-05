@@ -3,15 +3,19 @@ import styled from "styled-components"
 
 
 const Container = styled.div`
-  width: 100%;
+  width: auto;
 
   ${(props) => props.theme.query.lg} {
     padding-left: 20px;
+    padding-right: 20px
   }
 `
 
 const Description = styled.p`
-    max-width: 50%;
+    width: 50%;
+    ${(props) => props.theme.query.md} {
+        width: 100%
+  }
 `
 
 const ArticleHeader = () => {
