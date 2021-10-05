@@ -12,7 +12,7 @@ function App() {
     let courseCards = []
     for (let i = 0; i < courses.length; i++) {
       courseCards.push(
-        <CourseCard id={courses[i].id}
+        <CourseCard key={courses[i].id}
           title={courses[i].title}
           courseType={courses[i]['course-type']}
           topicsArr={courses[i].topics}

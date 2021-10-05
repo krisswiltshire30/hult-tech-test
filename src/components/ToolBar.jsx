@@ -31,12 +31,16 @@ const ToolBar = (props) => {
 
   const getCourses = (type) => {
     let courses = []
-    for (let i = 0; i < data.length; i++) {
-      if (data[i]['course-type'] === type) {
-        courses.push(data[i])
+    if (type === "all") {
+      setCourses(data)
+    } else {
+      for (let i = 0; i < data.length; i++) {
+        if (data[i]['course-type'] === type) {
+          courses.push(data[i])
+        }
       }
+      setCourses(courses)
     }
-    setCourses(courses)
   }
 
   return (
@@ -45,6 +49,7 @@ const ToolBar = (props) => {
         <Label>Course Type</Label>
         <Select defaultValue={'DEFAULT'} onChange={(e) => getCourses(e.target.value)} >
           <option value="DEFAULT" disabled>Please select</option>
+          <option value="all">All Course Types</option>
           <option value="core">Core</option>
           <option value="business-challenge">Business Challenge</option>
           <option value="capstone">Capstone</option>
