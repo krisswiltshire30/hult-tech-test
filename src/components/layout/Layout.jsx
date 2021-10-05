@@ -16,7 +16,7 @@ const PageContainer = styled.div`
  `
 
 const Main = styled.main`
-padding-top: 20px;
+padding-top: 50px;
 `
 
 const Layout = ({ children }) => {
