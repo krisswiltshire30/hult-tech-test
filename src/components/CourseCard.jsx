@@ -36,8 +36,22 @@ const CoursetopicsWrapper = styled.div`
   border-top: solid ${(props) => props.theme.colors.black[0]};
   margin: 20px;
 `
+const Topic = styled.p`
+  border-top: solid 1px ${(props) => props.theme.colors.grey[4]};
+  padding-top: 10px;
+  width: 100%;
+`
 
 const CourseCard = () => {
+  const TopicsHandler = (topics) => {
+    let test = []
+    for (let i = 0; i < topics.length; i++) {
+      test.push(<Topic>{topics[i]}</Topic>)
+    }
+    return test
+  }
+
+  let topics = ['test1', 'test2', 'test3']
   return (
     <CardContainer>
       <CardContent>
@@ -50,7 +64,7 @@ const CourseCard = () => {
       <Coursetopics>
         <CoursetopicsWrapper>
           <TopicsTitle>Key Topics & Skills</TopicsTitle>
-            
+          {TopicsHandler(topics)}
         </CoursetopicsWrapper>
       </Coursetopics>
     </CardContainer>
