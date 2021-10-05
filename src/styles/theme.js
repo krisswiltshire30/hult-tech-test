@@ -3,6 +3,7 @@ let theme = {}
 theme.layout = {
     maxWidth: "1024px",
     headerHeight: "60px",
+    gradient: "linear-gradient(0deg, rgb(255,250,231,100%) 65%, rgb(255,255,255,100%) 50%)"
 }
 
 theme.colors = {
