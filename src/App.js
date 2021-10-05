@@ -2,16 +2,19 @@ import React, { useState } from 'react';
 import Layout from './components/layout/Layout';
 import ArticleHeader from './components/ArticleHeader';
 import CourseCard from './components/CourseCard'
+import LoadMoreButton from "./components/LoadMoreButton"
 import ToolBar from './components/ToolBar';
 import CourseCount from './components/CourseCount';
 import data from "./data/courses.json"
 
 function App() {
   const [courses, setCourses] = useState(data)
+  const [loadCount, setLoadCount] = useState(3)
+
 
   const CourseCardsHandler = (courses) => {
     let courseCards = []
-    for (let i = 0; i < courses.length; i++) {
+    for (let i = 0; i < loadCount; i++) {
       courseCards.push(
         <CourseCard key={courses[i].id}
           title={courses[i].title}
@@ -26,9 +29,20 @@ function App() {
   return (
     <Layout>
       <ArticleHeader />
-      <ToolBar setCourses={setCourses} data={data} />
+      <ToolBar
+        setCourses={setCourses}
+        data={data}
+        setLoadCount={setLoadCount}
+        loadCount={loadCount}
+        courses={courses}
+      />
       <CourseCount courses={courses} />
       {CourseCardsHandler(courses)}
+      <LoadMoreButton
+        loadCount={loadCount}
+        setLoadCount={setLoadCount}
+        courses={courses}
+      />
     </Layout>
   );
 }

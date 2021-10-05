@@ -33,7 +33,7 @@ const Select = styled.select`
 `
 
 const ToolBar = (props) => {
-  const { setCourses, data } = props
+  const { setCourses, setLoadCount, data } = props
 
   const getCourses = (type) => {
     let courses = []
@@ -53,7 +53,7 @@ const ToolBar = (props) => {
     <ToolBarContainer>
       <ToolWrapper>
         <Label>Course Type</Label>
-        <Select defaultValue={'DEFAULT'} onChange={(e) => getCourses(e.target.value)} >
+        <Select defaultValue={'DEFAULT'} onClick={()=> setLoadCount(2)} onChange={(e) => getCourses(e.target.value)} >
           <option value="DEFAULT" disabled>Please select</option>
           <option value="all">All Course Types</option>
           <option value="core">Core</option>
@@ -68,7 +68,10 @@ const ToolBar = (props) => {
 
 ToolBar.propTypes = {
   setCourses: PropTypes.func,
+  setLoadCount: PropTypes.func,
   data: PropTypes.array,
+  loadCount: PropTypes.number,
+  courses: PropTypes.array,
 }
 
 export default ToolBar
