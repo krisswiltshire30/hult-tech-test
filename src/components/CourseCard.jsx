@@ -86,8 +86,8 @@ const CourseCard = (props) => {
     <CardContainer key={uid}>
       <CardContent>
         <CardContentWrapper>
-          <span>{title}</span>
-          <Coursetitle>{Capitalize(courseType)}</Coursetitle>
+          <span>{Capitalize(courseType)}</span>
+          <Coursetitle>{title}</Coursetitle>
           <p>{description}</p>
         </CardContentWrapper>
       </CardContent>
