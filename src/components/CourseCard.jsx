@@ -34,7 +34,7 @@ const CardContent = styled.div`
   }
 `
 const CardContentWrapper = styled.div`
-  padding: 20px;
+  padding: 30px 20px;
 `
 
 const Coursetitle = styled.h2`
